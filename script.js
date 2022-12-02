@@ -10,10 +10,11 @@ function onReady() {
     // Make sure you check the index.html file! 
     // There are lots of buttons and things ready for you to hook into here!
     //renderHpAp();
-    $('.arcane-sceptre').on('click', arcaneSceptre)
-    $('.entangle').on('click', entangle)
-    $('.dragon-blade').on('click', dragonBlade)
-    $('.star-fire').on('click', starFire)
+    $('.arcane-sceptre').on('click', arcaneSceptre);
+    $('.entangle').on('click', entangle);
+    $('.dragon-blade').on('click', dragonBlade);
+    $('.star-fire').on('click', starFire);
+    $('.nuke').on('click', nuke);
 
     // 🧠 Remember
     // - Handle events that ->
@@ -40,6 +41,12 @@ function renderHpAp(){
     if(fungusHP <= 0){
         $('.freaky-fungus').remove();
         $('.enemy').append('<div class="freaky-fungus dead"></div>')
+        document.getElementById("btn1").disabled = true;
+        document.getElementById("btn2").disabled = true; 
+        document.getElementById("btn3").disabled = true; 
+        document.getElementById("btn4").disabled = true; 
+        document.getElementById("btn5").disabled = true;
+        console.log('You Win!!!!');
     }
     if(attackPoints <= 0){
         $('.freaky-fungus').remove();
@@ -47,7 +54,9 @@ function renderHpAp(){
         document.getElementById("btn1").disabled = true;
         document.getElementById("btn2").disabled = true; 
         document.getElementById("btn3").disabled = true; 
-        document.getElementById("btn4").disabled = true; 
+        document.getElementById("btn4").disabled = true;
+        document.getElementById("btn5").disabled = true; 
+        console.log('You Lose!  Fungus Rulez!');
     }
     progressBar();
     //<div class="hp-text">100 HP</div>
@@ -94,6 +103,29 @@ function starFire(){
     attackPoints = attackPoints - 33;
     renderHpAp();
     console.log(fungusHP, attackPoints);    
+}
+//nuke em'
+function nuke(){
+    console.log('Nukes are bad for everyone.  Everyone Loses!');
+    fungusHP = fungusHP - 100;
+    attackPoints = attackPoints - 100;
+
+    progressBar();
+
+    $('.freaky-fungus').remove();
+    $('.enemy').append('<div class="freaky-fungus nuke"></div>')
+
+    $('#health').remove();
+    $('.enemy').prepend(`<div id = "health" class="hp-text">${fungusHP} HP</div>`);
+    $('#ourAttackPoints').remove();
+    $('.ap-text').remove();
+    $('.attacks').prepend(`<div class="ap-text">${attackPoints} AP</div>`);
+
+    document.getElementById("btn1").disabled = true;
+    document.getElementById("btn2").disabled = true; 
+    document.getElementById("btn3").disabled = true; 
+    document.getElementById("btn4").disabled = true; 
+    document.getElementById("btn5").disabled = true;
 }
 
 

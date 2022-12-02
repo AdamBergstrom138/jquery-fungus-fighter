@@ -110,7 +110,11 @@ progress {
   to { background-position: -2436px; }
 }
 
-
+.nuke {
+    background: url('images/nuke.png') no-repeat -21px;
+    animation-name: nuke;
+    animation-timing-function: steps(1);
+}
 
 /* Make the screen shake when you click on it
   (for attacks)
@@ -185,4 +189,7 @@ body:has( .freaky-fungus.dead) {
 }
 .attack-btn.star-fire {
     background-image: url('./images/star-fire.png');
+}
+.attack-btn.nuke {
+    background-image: url('./images/nukeButton.png');
 }
