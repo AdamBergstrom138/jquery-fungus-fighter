@@ -49,7 +49,12 @@ function renderHpAp(){
         document.getElementById("btn3").disabled = true; 
         document.getElementById("btn4").disabled = true; 
     }
+    progressBar();
     //<div class="hp-text">100 HP</div>
+}
+function progressBar(){
+    $('#hp-meter').val(fungusHP);
+    $('#ap-meter').val(attackPoints);
 }
 /*
 - **AP Cost:** 12
