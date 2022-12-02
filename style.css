@@ -193,3 +193,7 @@ body:has( .freaky-fungus.dead) {
 .attack-btn.nuke {
     background-image: url('./images/nukeButton.png');
 }
+.attack-btn.heal {
+    background-image: url('./images/heal.png');
+}
+

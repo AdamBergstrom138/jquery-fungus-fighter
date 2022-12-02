@@ -15,6 +15,7 @@ function onReady() {
     $('.dragon-blade').on('click', dragonBlade);
     $('.star-fire').on('click', starFire);
     $('.nuke').on('click', nuke);
+    $('.heal').on('click', heal);
 
     // 🧠 Remember
     // - Handle events that ->
@@ -46,6 +47,7 @@ function renderHpAp(){
         document.getElementById("btn3").disabled = true; 
         document.getElementById("btn4").disabled = true; 
         document.getElementById("btn5").disabled = true;
+        document.getElementById("btn6").disabled = true;
         console.log('You Win!!!!');
     }
     if(attackPoints <= 0){
@@ -56,6 +58,7 @@ function renderHpAp(){
         document.getElementById("btn3").disabled = true; 
         document.getElementById("btn4").disabled = true;
         document.getElementById("btn5").disabled = true; 
+        document.getElementById("btn6").disabled = true;
         console.log('You Lose!  Fungus Rulez!');
     }
     progressBar();
@@ -104,7 +107,15 @@ function starFire(){
     renderHpAp();
     console.log(fungusHP, attackPoints);    
 }
-//nuke em'
+// heal for 10
+function heal(){
+    console.log('heal click');
+    fungusHP = fungusHP + 10;
+    attackPoints = attackPoints + 15;
+    renderHpAp();
+    console.log(fungusHP, attackPoints); 
+}
+// nuke em'
 function nuke(){
     console.log('Nukes are bad for everyone.  Everyone Loses!');
     fungusHP = fungusHP - 100;
@@ -126,6 +137,7 @@ function nuke(){
     document.getElementById("btn3").disabled = true; 
     document.getElementById("btn4").disabled = true; 
     document.getElementById("btn5").disabled = true;
+    document.getElementById("btn6").disabled = true;
 }
 
 
