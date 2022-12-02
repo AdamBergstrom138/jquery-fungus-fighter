@@ -41,6 +41,14 @@ function renderHpAp(){
         $('.freaky-fungus').remove();
         $('.enemy').append('<div class="freaky-fungus dead"></div>')
     }
+    if(attackPoints <= 0){
+        $('.freaky-fungus').remove();
+        $('.enemy').append('<div class="freaky-fungus jump"></div>') 
+        document.getElementById("btn1").disabled = true;
+        document.getElementById("btn2").disabled = true; 
+        document.getElementById("btn3").disabled = true; 
+        document.getElementById("btn4").disabled = true; 
+    }
     //<div class="hp-text">100 HP</div>
 }
 /*
