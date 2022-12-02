@@ -15,14 +15,12 @@ function onReady() {
     $('.dragon-blade').on('click', dragonBlade)
     $('.star-fire').on('click', starFire)
 
-
-
-    //star-fire
     // 🧠 Remember
     // - Handle events that ->
     // - Updates state which is ->
     // - Rendered to the DOM
 }
+
 let fungusHP = 100;
 let attackPoints = 100;
 
@@ -38,7 +36,11 @@ function renderHpAp(){
     $('#ourAttackPoints').remove();
     $('.ap-text').remove();
     $('.attacks').prepend(`<div class="ap-text">${attackPoints} AP</div>`);
-   
+    
+    if(fungusHP <= 0){
+        $('.freaky-fungus').remove();
+        $('.enemy').append('<div class="freaky-fungus dead"></div>')
+    }
     //<div class="hp-text">100 HP</div>
 }
 /*
@@ -80,14 +82,5 @@ function starFire(){
     renderHpAp();
     console.log(fungusHP, attackPoints);    
 }
-/*
 
-**Handle click events:** 
 
-When you click an attack button:
-
--  update _state_ variable(s) to make the Freaky Fungus lose hit points (HP), and to reduce your attack points (AP). 
-- See [Attacks](#attacks) below, for the AP and HP values of each attack
-- State may be held in one our more variables of your choosing
-- HP and AP values may not be negative (set to zero, if they would otherwise be negative)
-*/
